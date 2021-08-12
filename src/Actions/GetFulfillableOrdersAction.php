@@ -28,7 +28,7 @@ class GetFulfillableOrdersAction
         /** @var \FulfillableOrders\Services\Collection\OrderCollection $collection */
         $collection = $this->collectionFactory->create($csvContent->toArray(), OrderCollection::class);
 
-        $sort = (new SortBag())->add('priority', Direction::DESC)->add('created_at', Direction::DESC);
+        $sort = (new SortBag())->add('priority', Direction::DESC)->add('created_at', Direction::ASC);
 
         $collection->sort($sort);
 
