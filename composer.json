@@ -1,0 +1,28 @@
+{
+  "name": "hzsolt/fulfillable-orders",
+  "description": "Sort and order fulfillable orders from csv",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Zsolt Horváth",
+      "email": "hrvth.7slt@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "FulfillableOrders\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
+}
