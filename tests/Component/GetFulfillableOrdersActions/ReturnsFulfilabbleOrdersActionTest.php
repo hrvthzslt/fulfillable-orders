@@ -8,7 +8,7 @@ use FulfillableOrders\Services\Reader\CsvContent;
 use FulfillableOrders\Services\Reader\CsvReader;
 use PHPUnit\Framework\TestCase;
 
-class ReturnsFulfilabbleOrdersTest extends TestCase
+class ReturnsFulfilabbleOrdersActionTest extends TestCase
 {
     public function test()
     {
