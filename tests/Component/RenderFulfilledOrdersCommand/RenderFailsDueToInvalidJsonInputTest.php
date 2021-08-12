@@ -2,8 +2,8 @@
 
 namespace Tests\Component\RenderFulfilledOrders;
 
-use FulfillableOrders\Application\Commands\RenderFulfillableOrdersCommand;
-use FulfillableOrders\Exceptions\InvalidStockQuantityException;
+use FulfillableOrders\Application\Console\Commands\RenderFulfillableOrdersCommand;
+use FulfillableOrders\Domain\Exceptions\InvalidStockQuantityException;
 
 class RenderFailsDueToInvalidJsonInputTest extends AbstractRenderFulfilledOrdersTest
 {

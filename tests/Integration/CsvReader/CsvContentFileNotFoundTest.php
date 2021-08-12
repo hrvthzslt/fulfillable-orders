@@ -2,8 +2,8 @@
 
 namespace Tests\Integration\CsvReader;
 
-use FulfillableOrders\Exceptions\FileNotFoundAtPathException;
-use FulfillableOrders\Services\Reader\CsvReader;
+use FulfillableOrders\Domain\Exceptions\FileNotFoundAtPathException;
+use FulfillableOrders\Domain\Services\Reader\CsvReader;
 use PHPUnit\Framework\TestCase;
 
 class CsvContentFileNotFoundTest extends TestCase

@@ -2,8 +2,8 @@
 
 namespace Tests\Integration\CsvReader;
 
-use FulfillableOrders\Services\Reader\CsvContent;
-use FulfillableOrders\Services\Reader\CsvReader;
+use FulfillableOrders\Domain\Services\Reader\CsvContent;
+use FulfillableOrders\Domain\Services\Reader\CsvReader;
 use PHPUnit\Framework\TestCase;
 
 class CsvContentReadTest extends TestCase

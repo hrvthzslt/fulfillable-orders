@@ -2,8 +2,8 @@
 
 namespace Tests\Component\RenderFulfilledOrders;
 
-use FulfillableOrders\Actions\GetFulfillableOrdersAction;
-use FulfillableOrders\Presenters\OrderTablePresenter;
+use FulfillableOrders\Domain\Actions\GetFulfillableOrdersAction;
+use FulfillableOrders\Domain\Presenters\OrderTablePresenter;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractRenderFulfilledOrdersTest extends TestCase

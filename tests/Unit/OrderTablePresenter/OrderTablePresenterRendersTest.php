@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\OrderTablePresenter;
 
-use FulfillableOrders\Presenters\OrderTablePresenter;
+use FulfillableOrders\Domain\Presenters\OrderTablePresenter;
 use PHPUnit\Framework\TestCase;
 
 class OrderTablePresenterRendersTest extends TestCase

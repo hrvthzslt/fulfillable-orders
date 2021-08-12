@@ -2,9 +2,9 @@
 
 namespace Tests\Integration\Collection;
 
-use FulfillableOrders\Enums\Direction;
-use FulfillableOrders\Services\Collection\Collection;
-use FulfillableOrders\Values\SortBag;
+use FulfillableOrders\Domain\Enums\Direction;
+use FulfillableOrders\Domain\Services\Collection\Collection;
+use FulfillableOrders\Domain\Values\SortBag;
 
 class SortCollectionTest extends AbstractCollectionTest
 {

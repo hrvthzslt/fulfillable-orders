@@ -2,10 +2,10 @@
 
 namespace Tests\Component\GetFulfillableOrders;
 
-use FulfillableOrders\Actions\GetFulfillableOrdersAction;
-use FulfillableOrders\Services\Collection\CollectionFactory;
-use FulfillableOrders\Services\Reader\CsvContent;
-use FulfillableOrders\Services\Reader\CsvReader;
+use FulfillableOrders\Domain\Actions\GetFulfillableOrdersAction;
+use FulfillableOrders\Domain\Services\Collection\CollectionFactory;
+use FulfillableOrders\Domain\Services\Reader\CsvContent;
+use FulfillableOrders\Domain\Services\Reader\CsvReader;
 use PHPUnit\Framework\TestCase;
 
 class ReturnsFulfilabbleOrdersActionTest extends TestCase

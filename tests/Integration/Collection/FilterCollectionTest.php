@@ -2,7 +2,7 @@
 
 namespace Tests\Integration\Collection;
 
-use FulfillableOrders\Services\Collection\Collection;
+use FulfillableOrders\Domain\Services\Collection\Collection;
 
 class FilterCollectionTest extends AbstractCollectionTest
 {

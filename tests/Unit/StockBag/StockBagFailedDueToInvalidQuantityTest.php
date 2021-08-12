@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\StockBag;
 
-use FulfillableOrders\Exceptions\InvalidStockQuantityException;
-use FulfillableOrders\Values\StockBag;
+use FulfillableOrders\Domain\Exceptions\InvalidStockQuantityException;
+use FulfillableOrders\Domain\Values\StockBag;
 use PHPUnit\Framework\TestCase;
 
 class StockBagFailedDueToInvalidQuantityTest extends TestCase

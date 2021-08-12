@@ -2,8 +2,8 @@
 
 namespace Tests\Component\RenderFulfilledOrders;
 
-use FulfillableOrders\Application\Commands\RenderFulfillableOrdersCommand;
-use FulfillableOrders\Exceptions\AmbiguousNumberOfParametersException;
+use FulfillableOrders\Application\Console\Commands\RenderFulfillableOrdersCommand;
+use FulfillableOrders\Domain\Exceptions\AmbiguousNumberOfParametersException;
 
 class RenderFailsDueToAmbiguousNumberOfParametersTest extends AbstractRenderFulfilledOrdersTest
 {

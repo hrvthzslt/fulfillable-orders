@@ -2,8 +2,8 @@
 
 namespace Tests\Integration\Collection;
 
-use FulfillableOrders\Services\Collection\OrderCollection;
-use FulfillableOrders\Values\StockBag;
+use FulfillableOrders\Domain\Services\Collection\OrderCollection;
+use FulfillableOrders\Domain\Values\StockBag;
 use PHPUnit\Framework\TestCase;
 
 class FilterOrderCollectionByStockTest extends TestCase

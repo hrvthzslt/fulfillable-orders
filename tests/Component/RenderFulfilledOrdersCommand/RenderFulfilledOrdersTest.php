@@ -2,7 +2,7 @@
 
 namespace Tests\Component\RenderFulfilledOrders;
 
-use FulfillableOrders\Application\Commands\RenderFulfillableOrdersCommand;
+use FulfillableOrders\Application\Console\Commands\RenderFulfillableOrdersCommand;
 
 class RenderFulfilledOrdersTest extends AbstractRenderFulfilledOrdersTest
 {

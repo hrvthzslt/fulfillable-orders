@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\SortBag;
 
-use FulfillableOrders\Enums\Direction;
-use FulfillableOrders\Values\SortBag;
+use FulfillableOrders\Domain\Enums\Direction;
+use FulfillableOrders\Domain\Values\SortBag;
 use PHPUnit\Framework\TestCase;
 
 class SortBagCreatedTest extends TestCase

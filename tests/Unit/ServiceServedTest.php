@@ -2,8 +2,7 @@
 
 namespace Tests\Unit;
 
-
-use FulfillableOrders\Services\Service;
+use FulfillableOrders\Domain\Services\Service;
 use PHPUnit\Framework\TestCase;
 
 class ServiceServedTest extends TestCase

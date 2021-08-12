@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\CsvContent;
 
-use FulfillableOrders\Services\Reader\CsvContent;
+use FulfillableOrders\Domain\Services\Reader\CsvContent;
 use PHPUnit\Framework\TestCase;
 
 class ArrayableContentCreatedTest extends TestCase

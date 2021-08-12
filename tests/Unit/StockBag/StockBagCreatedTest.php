@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\StockBag;
 
-use FulfillableOrders\Values\StockBag;
+use FulfillableOrders\Domain\Values\StockBag;
 use PHPUnit\Framework\TestCase;
 
 class StockBagCreatedTest extends TestCase

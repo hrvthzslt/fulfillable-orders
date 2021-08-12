@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\SortBag;
 
-use FulfillableOrders\Exceptions\InvalidDirectionException;
-use FulfillableOrders\Values\SortBag;
+use FulfillableOrders\Domain\Exceptions\InvalidDirectionException;
+use FulfillableOrders\Domain\Values\SortBag;
 use PHPUnit\Framework\TestCase;
 
 class SortBagFailedDueToInvalidDirectionTest extends TestCase
