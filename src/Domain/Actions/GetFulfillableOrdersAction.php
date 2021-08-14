@@ -27,20 +27,20 @@ class GetFulfillableOrdersAction
     {
         $csvContent = $this->reader->readFile($filePath);
 
-        $collection = $this->orderCollectionFactory->create($csvContent);
+        $orderCollection = $this->orderCollectionFactory->create($csvContent);
 
         $sort = (new SortList())->add(new SortInput('priority', Direction::DESC))
             ->add(new SortInput('created_at', Direction::ASC));
 
-        $collection->sort($sort);
+        $orderCollection->sort($sort);
 
         $stockList = new StockList();
         array_walk($stocks, function ($quantity, $productId) use ($stockList) {
             $stockList->add(new StockInput($productId, $quantity));
         });
 
-        $collection->filterByStock($stockList);
+        $orderCollection->filterByStock($stockList);
 
-        return $collection->getOrderDetails();
+        return $orderCollection->getOrderDetails();
     }
 }
