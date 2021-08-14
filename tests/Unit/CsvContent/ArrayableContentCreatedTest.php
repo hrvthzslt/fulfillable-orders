@@ -7,21 +7,44 @@ use PHPUnit\Framework\TestCase;
 
 class ArrayableContentCreatedTest extends TestCase
 {
-    public function test()
+    /**
+     * @dataProvider dataProvider
+     *
+     * @param  array  $header
+     * @param  array  $rows
+     * @param  array  $expectedArray
+     */
+    public function test(array $header, array $rows, array $expectedArray)
     {
-        $header = ['id', 'title'];
-        $rows = [
-            ['1', 'A title for test'],
-            ['2', 'Another'],
-        ];
-
         $csvContent = new CsvContent($header, $rows);
-
-        $expectedArray = [
-            ['id' => '1', 'title' => 'A title for test'],
-            ['id' => '2', 'title' => 'Another'],
-        ];
-
         $this->assertEquals($csvContent->toArray(), $expectedArray);
+    }
+
+    public function dataProvider(): array
+    {
+        return [
+            "Case #1" => [
+                "header"        => ['id', 'title'],
+                "rows"          => [
+                    ['1', 'A title for test'],
+                    ['2', 'Another'],
+                ],
+                "expectedArray" => [
+                    ['id' => '1', 'title' => 'A title for test'],
+                    ['id' => '2', 'title' => 'Another'],
+                ],
+            ],
+            "Case #2" => [
+                "header"        => ['x', 'y'],
+                "rows"          => [
+                    [12, 20],
+                    [12, 30],
+                ],
+                "expectedArray" => [
+                    ['x' => 12, 'y' => 20],
+                    ['x' => 12, 'y' => 30],
+                ],
+            ],
+        ];
     }
 }
