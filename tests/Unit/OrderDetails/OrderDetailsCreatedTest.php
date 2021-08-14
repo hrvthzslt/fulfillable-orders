@@ -25,7 +25,7 @@ class OrderDetailsCreatedTest extends TestCase
         $this->assertEquals($date, $orderDetails->getCreatedAt());
     }
 
-    public function dataProvider()
+    public function dataProvider(): array
     {
         return [
             "Case #1" => [

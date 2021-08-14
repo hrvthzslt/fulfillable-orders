@@ -26,7 +26,7 @@ class OrderTableRowCreatedTest extends TestCase
         $this->assertEquals($date, $orderTableRow->getCreatedAt());
     }
 
-    public function orderTableRowCreatedDataProvider()
+    public function orderTableRowCreatedDataProvider(): array
     {
         return [
             "Case #1" => [
