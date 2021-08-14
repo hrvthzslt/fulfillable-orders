@@ -3,6 +3,8 @@
 namespace FulfillableOrders\Application\Console\Commands;
 
 use FulfillableOrders\Domain\Actions\GetFulfillableOrdersAction;
+use FulfillableOrders\Domain\Dtos\OrderTableRow;
+use FulfillableOrders\Domain\Dtos\OrderTableRowList;
 use FulfillableOrders\Domain\Exceptions\AmbiguousNumberOfParametersException;
 use FulfillableOrders\Domain\Exceptions\InvalidStockQuantityException;
 use FulfillableOrders\Domain\Presenters\RendersTableInterface;
@@ -33,6 +35,15 @@ class RenderFulfillableOrdersCommand
 
         $fulfillableOrders = $this->getFulfillableOrdersAction->handle($filePath, $stockArguments);
 
-        $this->orderTablePresenter->render($fulfillableOrders);
+        $orderTableRowList = new OrderTableRowList();
+        array_map(function ($fulfillableOrder) use ($orderTableRowList) {
+            $orderTableRowList->add(new OrderTableRow(
+                $fulfillableOrder['product_id'],
+                $fulfillableOrder['quantity'],
+                $fulfillableOrder['priority'],
+                $fulfillableOrder['created_at']));
+        }, $fulfillableOrders);
+
+        $this->orderTablePresenter->render($orderTableRowList);
     }
 }

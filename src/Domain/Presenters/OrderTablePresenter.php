@@ -2,7 +2,7 @@
 
 namespace FulfillableOrders\Domain\Presenters;
 
-use FulfillableOrders\Domain\Enums\Priority;
+use FulfillableOrders\Domain\Dtos\RenderableRowList;
 
 class OrderTablePresenter extends AbstractTablePresenter implements RendersTableInterface
 {
@@ -21,7 +21,7 @@ class OrderTablePresenter extends AbstractTablePresenter implements RendersTable
         return ['====================', '====================', '====================', '===================='];
     }
 
-    public function render(array $items): void
+    public function render(RenderableRowList $renderableRowList): void
     {
         $header = $this->getHeader();
         $separator = $this->getSeparator();
@@ -29,10 +29,8 @@ class OrderTablePresenter extends AbstractTablePresenter implements RendersTable
         printf($mask, $header[0], $header[1], $header[2], $header[3]);
         printf($mask, $separator[0], $separator[1], $separator[2], $separator[3]);
 
-        foreach ($items as $item) {
-            $item['priority'] = Priority::list()[$item['priority']];
-            $values = array_values($item);
-            printf($mask, $values[0], $values[1], $values[2], $values[3]);
+        foreach ($renderableRowList->getList() as $row) {
+            printf($mask, $row->getProductId(), $row->getQuantity(), $row->getPriority(), $row->getCreatedAt());
         }
     }
 }
