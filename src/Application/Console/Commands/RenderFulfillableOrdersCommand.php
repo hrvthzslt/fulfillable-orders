@@ -34,15 +34,15 @@ class RenderFulfillableOrdersCommand
         }
 
         $fulfillableOrders = $this->getFulfillableOrdersAction->handle($filePath, $stockArguments);
-
+        
         $orderTableRowList = new OrderTableRowList();
         array_map(function ($fulfillableOrder) use ($orderTableRowList) {
             $orderTableRowList->add(new OrderTableRow(
-                $fulfillableOrder['product_id'],
-                $fulfillableOrder['quantity'],
-                $fulfillableOrder['priority'],
-                $fulfillableOrder['created_at']));
-        }, $fulfillableOrders);
+                $fulfillableOrder->getProductId(),
+                $fulfillableOrder->getQuantity(),
+                $fulfillableOrder->getPriority(),
+                $fulfillableOrder->getCreatedAt()));
+        }, $fulfillableOrders->getList());
 
         $this->orderTablePresenter->render($orderTableRowList);
     }

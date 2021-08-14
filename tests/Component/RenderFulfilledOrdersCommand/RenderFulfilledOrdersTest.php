@@ -3,6 +3,8 @@
 namespace Tests\Component\RenderFulfilledOrders;
 
 use FulfillableOrders\Application\Console\Commands\RenderFulfillableOrdersCommand;
+use FulfillableOrders\Domain\Dtos\OrderDetails;
+use FulfillableOrders\Domain\Dtos\OrderDetailsList;
 
 class RenderFulfilledOrdersTest extends AbstractRenderFulfilledOrdersTest
 {
@@ -11,20 +13,11 @@ class RenderFulfilledOrdersTest extends AbstractRenderFulfilledOrdersTest
     {
         $this->expectNotToPerformAssertions();
 
-        $this->getFulfillableOrdersActionMock->method('handle')->willReturn([
-            [
-                "product_id" => "2",
-                "quantity"   => "1",
-                "priority"   => "2",
-                "created_at" => "2021-03-21 14:00:26",
-            ],
-            [
-                "product_id" => "2",
-                "quantity"   => "4",
-                "priority"   => "1",
-                "created_at" => "2021-03-22 17:41:32",
-            ],
-        ]);
+        $this->getFulfillableOrdersActionMock->method('handle')->willReturn(
+            (new OrderDetailsList())
+                ->add(new OrderDetails(2, 1, 2, "2021-03-21 14:00:26"))
+                ->add(new OrderDetails(2, 4, 1, "2021-03-22 17:41:32"))
+        );
 
         $this->orderTablePresenterMock->method('render');
 

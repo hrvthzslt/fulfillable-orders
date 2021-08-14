@@ -2,6 +2,7 @@
 
 namespace FulfillableOrders\Domain\Actions;
 
+use FulfillableOrders\Domain\Dtos\OrderDetailsList;
 use FulfillableOrders\Domain\Dtos\SortInput;
 use FulfillableOrders\Domain\Dtos\SortList;
 use FulfillableOrders\Domain\Dtos\StockInput;
@@ -22,7 +23,7 @@ class GetFulfillableOrdersAction
         $this->orderCollectionFactory = $orderCollectionFactory;
     }
 
-    public function handle(string $filePath, array $stocks): array
+    public function handle(string $filePath, array $stocks): OrderDetailsList
     {
         $csvContent = $this->reader->readFile($filePath);
 
@@ -40,6 +41,6 @@ class GetFulfillableOrdersAction
 
         $collection->filterByStock($stockList);
 
-        return $collection->getItems();
+        return $collection->getOrderDetails();
     }
 }

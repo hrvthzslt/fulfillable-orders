@@ -7,7 +7,7 @@ use FulfillableOrders\Domain\Enums\Direction;
 
 class Collection implements FilterableAndSortableInterface
 {
-    private array $items;
+    protected array $items;
 
     public function __construct(array $items)
     {
