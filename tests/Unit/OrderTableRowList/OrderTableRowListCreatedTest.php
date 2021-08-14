@@ -36,31 +36,31 @@ class OrderTableRowListCreatedTest extends TestCase
     {
         return [
             'Row list #1' => [
-                'firstRow'  => [
+                'firstRow' => [
                     'productId' => 1,
-                    'quantity'  => 2,
-                    'priority'  => 3,
-                    'date'      => '2021-03-23 05:01:29',
+                    'quantity' => 2,
+                    'priority' => 3,
+                    'date' => '2021-03-23 05:01:29',
                 ],
                 "secondRow" => [
                     'productId' => 43,
-                    'quantity'  => 876,
-                    'priority'  => 1,
-                    'date'      => '2021-03-23 05:01:29',
+                    'quantity' => 876,
+                    'priority' => 1,
+                    'date' => '2021-03-23 05:01:29',
                 ],
             ],
             'Row list #2' => [
-                'firstRow'  => [
+                'firstRow' => [
                     'productId' => 463,
-                    'quantity'  => 23,
-                    'priority'  => 2,
-                    'date'      => '2019-03-23 05:01:29',
+                    'quantity' => 23,
+                    'priority' => 2,
+                    'date' => '2019-03-23 05:01:29',
                 ],
                 "secondRow" => [
                     'productId' => 65,
-                    'quantity'  => 1,
-                    'priority'  => 2,
-                    'date'      => '2000-03-23 05:01:29',
+                    'quantity' => 1,
+                    'priority' => 2,
+                    'date' => '2000-03-23 05:01:29',
                 ],
             ],
         ];

@@ -26,8 +26,8 @@ class FilterCollectionTest extends TestCase
     public function dataProvider(): array
     {
         return [
-            "Letters with quantity filtered with result"    => [
-                'itemsToCollect'     => [
+            "Letters with quantity filtered with result" => [
+                'itemsToCollect' => [
                     ['quantity' => '1', 'letter' => 'A'],
                     ['quantity' => '1', 'letter' => 'B'],
                     ['quantity' => '1', 'letter' => 'C'],
@@ -39,19 +39,19 @@ class FilterCollectionTest extends TestCase
                     ['quantity' => '2', 'letter' => 'D'],
                     ['quantity' => '3', 'letter' => 'F'],
                 ],
-                'filter'             => function ($item) {
+                'filter' => function ($item) {
                     return $item['quantity'] >= 2 && $item['letter'] !== 'E';
                 },
             ],
             "Letters with quantity filtered with no result" => [
-                'itemsToCollect'     => [
+                'itemsToCollect' => [
                     ['quantity' => '1', 'letter' => 'A'],
                     ['quantity' => '1', 'letter' => 'B'],
                     ['quantity' => '1', 'letter' => 'C'],
                 ],
                 'expectedCollection' => [
                 ],
-                'filter'             => function ($item) {
+                'filter' => function ($item) {
                     return $item['quantity'] > 1;
                 },
             ],

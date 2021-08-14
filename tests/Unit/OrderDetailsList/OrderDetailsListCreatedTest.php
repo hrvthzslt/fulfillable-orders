@@ -36,31 +36,31 @@ class OrderDetailsListCreatedTest extends TestCase
     {
         return [
             "Case #1" => [
-                "firstOrder"  => [
+                "firstOrder" => [
                     'productId' => 1,
-                    'quantity'  => 2,
-                    'priority'  => 3,
-                    'date'      => '2021-03-23 05:01:29',
+                    'quantity' => 2,
+                    'priority' => 3,
+                    'date' => '2021-03-23 05:01:29',
                 ],
                 "secondOrder" => [
                     'productId' => 43,
-                    'quantity'  => 876,
-                    'priority'  => 1,
-                    'date'      => '2021-03-23 05:01:29',
+                    'quantity' => 876,
+                    'priority' => 1,
+                    'date' => '2021-03-23 05:01:29',
                 ],
             ],
             "Case #2" => [
-                "firstOrder"  => [
+                "firstOrder" => [
                     'productId' => 45,
-                    'quantity'  => 77,
-                    'priority'  => 2,
-                    'date'      => '2011-03-12 07:01:29',
+                    'quantity' => 77,
+                    'priority' => 2,
+                    'date' => '2011-03-12 07:01:29',
                 ],
                 "secondOrder" => [
                     'productId' => 43,
-                    'quantity'  => 876,
-                    'priority'  => 1,
-                    'date'      => '2011-03-12 07:01:29',
+                    'quantity' => 876,
+                    'priority' => 1,
+                    'date' => '2011-03-12 07:01:29',
                 ],
             ],
         ];

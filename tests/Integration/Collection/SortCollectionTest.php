@@ -40,7 +40,7 @@ class SortCollectionTest extends TestCase
     {
         return [
             'Letters with quantity' => [
-                'itemsToCollect'  => [
+                'itemsToCollect' => [
                     ['quantity' => '1', 'letter' => 'A'],
                     ['quantity' => '1', 'letter' => 'B'],
                     ['quantity' => '1', 'letter' => 'C'],
@@ -48,7 +48,7 @@ class SortCollectionTest extends TestCase
                     ['quantity' => '3', 'letter' => 'E'],
                     ['quantity' => '3', 'letter' => 'F'],
                 ],
-                'expectedItems'   => [
+                'expectedItems' => [
                     ['quantity' => '3', 'letter' => 'E'],
                     ['quantity' => '3', 'letter' => 'F'],
                     ['quantity' => '2', 'letter' => 'D'],
@@ -56,25 +56,25 @@ class SortCollectionTest extends TestCase
                     ['quantity' => '1', 'letter' => 'B'],
                     ['quantity' => '1', 'letter' => 'C'],
                 ],
-                'firstField'      => 'quantity',
-                'firstDirection'  => Direction::DESC,
-                'secondField'     => 'letter',
+                'firstField' => 'quantity',
+                'firstDirection' => Direction::DESC,
+                'secondField' => 'letter',
                 'secondDirection' => Direction::ASC,
             ],
-            'Name and year'         => [
-                'itemsToCollect'  => [
+            'Name and year' => [
+                'itemsToCollect' => [
                     ['name' => 'Kyle', 'year' => '1988'],
                     ['name' => 'Kyle', 'year' => '1993'],
                     ['name' => 'Carol', 'year' => '2001'],
                 ],
-                'expectedItems'   => [
+                'expectedItems' => [
                     ['name' => 'Carol', 'year' => '2001'],
                     ['name' => 'Kyle', 'year' => '1993'],
                     ['name' => 'Kyle', 'year' => '1988'],
                 ],
-                'firstField'      => 'name',
-                'firstDirection'  => Direction::ASC,
-                'secondField'     => 'year',
+                'firstField' => 'name',
+                'firstDirection' => Direction::ASC,
+                'secondField' => 'year',
                 'secondDirection' => Direction::DESC,
             ],
         ];

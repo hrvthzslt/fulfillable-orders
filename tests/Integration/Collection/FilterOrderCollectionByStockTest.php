@@ -31,63 +31,63 @@ class FilterOrderCollectionByStockTest extends TestCase
     public function dataProvider(): array
     {
         return [
-            'Filter items by stock with result'    => [
+            'Filter items by stock with result' => [
                 'itemsToCollect' => [
                     [
                         "product_id" => "1",
-                        "quantity"   => "2",
-                        "priority"   => "3",
+                        "quantity" => "2",
+                        "priority" => "3",
                         "created_at" => "2021-03-25 14:51:47",
                     ],
                     [
                         "product_id" => "2",
-                        "quantity"   => "1",
-                        "priority"   => "2",
+                        "quantity" => "1",
+                        "priority" => "2",
                         "created_at" => "2021-03-21 14:00:26",
                     ],
                     [
                         "product_id" => "2",
-                        "quantity"   => "4",
-                        "priority"   => "1",
+                        "quantity" => "4",
+                        "priority" => "1",
                         "created_at" => "2021-03-22 17:41:32",
                     ],
                 ],
-                'expectedItems'  => [
+                'expectedItems' => [
                     [
                         "product_id" => "2",
-                        "quantity"   => "1",
-                        "priority"   => "2",
+                        "quantity" => "1",
+                        "priority" => "2",
                         "created_at" => "2021-03-21 14:00:26",
                     ],
                     [
                         "product_id" => "2",
-                        "quantity"   => "4",
-                        "priority"   => "1",
+                        "quantity" => "4",
+                        "priority" => "1",
                         "created_at" => "2021-03-22 17:41:32",
                     ],
                 ],
-                'productId'      => 2,
-                'quantity'       => 4,
+                'productId' => 2,
+                'quantity' => 4,
             ],
             'Filter items by stock with no result' => [
                 'itemsToCollect' => [
                     [
                         "product_id" => "1",
-                        "quantity"   => "2",
-                        "priority"   => "3",
+                        "quantity" => "2",
+                        "priority" => "3",
                         "created_at" => "2021-03-25 14:51:47",
                     ],
                     [
                         "product_id" => "2",
-                        "quantity"   => "1",
-                        "priority"   => "2",
+                        "quantity" => "1",
+                        "priority" => "2",
                         "created_at" => "2021-03-21 14:00:26",
                     ],
                 ],
-                'expectedItems'  => [
+                'expectedItems' => [
                 ],
-                'productId'      => 6,
-                'quantity'       => 1,
+                'productId' => 6,
+                'quantity' => 1,
             ],
         ];
     }

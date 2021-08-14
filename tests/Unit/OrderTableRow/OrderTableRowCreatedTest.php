@@ -30,17 +30,17 @@ class OrderTableRowCreatedTest extends TestCase
     {
         return [
             "Case #1" => [
-                'productId'        => 1,
-                'quantity'         => 2,
-                'priority'         => 3,
-                'date'             => '2021-03-23 05:01:29',
+                'productId' => 1,
+                'quantity' => 2,
+                'priority' => 3,
+                'date' => '2021-03-23 05:01:29',
                 'expectedPriority' => 'high',
             ],
             "Case #2" => [
-                'productId'        => 43,
-                'quantity'         => 876,
-                'priority'         => 1,
-                'date'             => '2021-03-23 05:01:29',
+                'productId' => 43,
+                'quantity' => 876,
+                'priority' => 1,
+                'date' => '2021-03-23 05:01:29',
                 'expectedPriority' => 'low',
             ],
         ];

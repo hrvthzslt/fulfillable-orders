@@ -26,11 +26,11 @@ class StockInputCreatedTest extends TestCase
         return [
             'Stock input #1' => [
                 'productId' => 2,
-                'quantity'  => 4,
+                'quantity' => 4,
             ],
             'Stock input #2' => [
                 'productId' => 45,
-                'quantity'  => 11,
+                'quantity' => 11,
             ],
         ];
     }

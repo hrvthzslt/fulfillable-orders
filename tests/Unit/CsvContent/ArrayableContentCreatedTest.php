@@ -24,8 +24,8 @@ class ArrayableContentCreatedTest extends TestCase
     {
         return [
             "Case #1" => [
-                "header"        => ['id', 'title'],
-                "rows"          => [
+                "header" => ['id', 'title'],
+                "rows" => [
                     ['1', 'A title for test'],
                     ['2', 'Another'],
                 ],
@@ -35,8 +35,8 @@ class ArrayableContentCreatedTest extends TestCase
                 ],
             ],
             "Case #2" => [
-                "header"        => ['x', 'y'],
-                "rows"          => [
+                "header" => ['x', 'y'],
+                "rows" => [
                     [12, 20],
                     [12, 30],
                 ],

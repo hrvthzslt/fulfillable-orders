@@ -41,31 +41,31 @@ class ReturnsFulfillableOrdersActionTest extends TestCase
             "Case #1" => [
                 "csvContentMock" => [
                     "header" => ['product_id', 'quantity', 'priority', 'created_at'],
-                    "rows"   => [
+                    "rows" => [
                         ['1', '2', '3', '2021-03-25 14:51:47'],
                         ['2', '1', '2', '2021-03-21 14:00:26'],
                         ['2', '4', '1', '2021-03-22 17:41:32'],
                     ],
                 ],
-                "expectedItems"  => [
+                "expectedItems" => [
                     new OrderDetails(2, 1, 2, "2021-03-21 14:00:26"),
                     new OrderDetails(2, 4, 1, "2021-03-22 17:41:32"),
                 ],
-                "stock"          => [2 => 4],
+                "stock" => [2 => 4],
             ],
             "Case #2" => [
                 "csvContentMock" => [
                     "header" => ['product_id', 'quantity', 'priority', 'created_at'],
-                    "rows"   => [
+                    "rows" => [
                         ['1', '2', '3', '2021-03-25 14:51:47'],
                         ['2', '1', '2', '2021-03-21 14:00:26'],
                         ['2', '4', '1', '2021-03-22 17:41:32'],
                     ],
                 ],
-                "expectedItems"  => [
+                "expectedItems" => [
                     new OrderDetails(1, 2, 3, "2021-03-25 14:51:47"),
                 ],
-                "stock"          => [1 => 2],
+                "stock" => [1 => 2],
             ],
         ];
     }

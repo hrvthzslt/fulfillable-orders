@@ -29,16 +29,16 @@ class StockListCreatedTest extends TestCase
     {
         return [
             'Stock list #1' => [
-                'firstProductId'  => 1,
-                'firstQuantity'   => 2,
+                'firstProductId' => 1,
+                'firstQuantity' => 2,
                 'secondProductId' => 3,
-                'secondQuantity'  => 4,
+                'secondQuantity' => 4,
             ],
             'Stock list #2' => [
-                'firstProductId'  => 7,
-                'firstQuantity'   => 32,
+                'firstProductId' => 7,
+                'firstQuantity' => 32,
                 'secondProductId' => 88,
-                'secondQuantity'  => 1,
+                'secondQuantity' => 1,
             ],
         ];
     }

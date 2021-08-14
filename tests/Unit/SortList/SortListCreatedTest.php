@@ -30,15 +30,15 @@ class SortListCreatedTest extends TestCase
     {
         return [
             'Sort list with priority/desc and created_at/asc' => [
-                'firstField'      => 'priority',
-                'firstDirection'  => Direction::DESC,
-                'secondField'     => 'created_at',
+                'firstField' => 'priority',
+                'firstDirection' => Direction::DESC,
+                'secondField' => 'created_at',
                 'secondDirection' => Direction::ASC,
             ],
-            'Sort list with name/asc and updated_at/desc'     => [
-                'firstField'      => 'name',
-                'firstDirection'  => Direction::ASC,
-                'secondField'     => 'updated_at',
+            'Sort list with name/asc and updated_at/desc' => [
+                'firstField' => 'name',
+                'firstDirection' => Direction::ASC,
+                'secondField' => 'updated_at',
                 'secondDirection' => Direction::DESC,
             ],
         ];

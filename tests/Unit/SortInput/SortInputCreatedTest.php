@@ -25,12 +25,12 @@ class SortInputCreatedTest extends TestCase
     public function dataProvider(): array
     {
         return [
-            'Title ascending'       => [
-                'field'     => 'title',
+            'Title ascending' => [
+                'field' => 'title',
                 'direction' => Direction::ASC,
             ],
             'Created at descending' => [
-                'field'     => 'created_at',
+                'field' => 'created_at',
                 'direction' => Direction::DESC,
             ],
         ];

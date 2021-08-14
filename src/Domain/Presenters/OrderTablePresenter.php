@@ -6,9 +6,17 @@ use FulfillableOrders\Domain\Dtos\RenderableRowList;
 
 class OrderTablePresenter extends AbstractTablePresenter implements RendersTableInterface
 {
-    protected function getMask(): string
+    public function render(RenderableRowList $renderableRowList): void
     {
-        return "%-20.20s%-20.20s%-20.20s%-20.20s\n";
+        $header = $this->getHeader();
+        $separator = $this->getSeparator();
+        $mask = $this->getMask();
+        printf($mask, $header[0], $header[1], $header[2], $header[3]);
+        printf($mask, $separator[0], $separator[1], $separator[2], $separator[3]);
+
+        foreach ($renderableRowList->getList() as $row) {
+            printf($mask, $row->getProductId(), $row->getQuantity(), $row->getPriority(), $row->getCreatedAt());
+        }
     }
 
     protected function getHeader(): array
@@ -21,16 +29,8 @@ class OrderTablePresenter extends AbstractTablePresenter implements RendersTable
         return ['====================', '====================', '====================', '===================='];
     }
 
-    public function render(RenderableRowList $renderableRowList): void
+    protected function getMask(): string
     {
-        $header = $this->getHeader();
-        $separator = $this->getSeparator();
-        $mask = $this->getMask();
-        printf($mask, $header[0], $header[1], $header[2], $header[3]);
-        printf($mask, $separator[0], $separator[1], $separator[2], $separator[3]);
-
-        foreach ($renderableRowList->getList() as $row) {
-            printf($mask, $row->getProductId(), $row->getQuantity(), $row->getPriority(), $row->getCreatedAt());
-        }
+        return "%-20.20s%-20.20s%-20.20s%-20.20s\n";
     }
 }
