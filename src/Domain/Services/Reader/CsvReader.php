@@ -18,7 +18,7 @@ class CsvReader implements ReadsFileFromPathInterface
         try {
             $lines = file($path);
         } catch (\Exception $e) {
-            throw new FileNotFoundAtPathException("File not found at pah: {$path}");
+            throw new FileNotFoundAtPathException("File not found at path: {$path}");
         }
 
         $rows = array_map(function ($row) use ($lines) {
