@@ -7,28 +7,26 @@ use FulfillableOrders\Domain\Dtos\SortList;
 use FulfillableOrders\Domain\Dtos\StockInput;
 use FulfillableOrders\Domain\Dtos\StockList;
 use FulfillableOrders\Domain\Enums\Direction;
-use FulfillableOrders\Domain\Services\Collection\CollectionFactory;
-use FulfillableOrders\Domain\Services\Collection\OrderCollection;
+use FulfillableOrders\Domain\Services\Collection\OrderCollectionFactory;
 use FulfillableOrders\Domain\Services\Reader\ReadsFileFromPathInterface;
 
 class GetFulfillableOrdersAction
 {
     private ReadsFileFromPathInterface $reader;
 
-    private CollectionFactory $collectionFactory;
+    private OrderCollectionFactory $orderCollectionFactory;
 
-    public function __construct(ReadsFileFromPathInterface $reader, CollectionFactory $collectionFactory)
+    public function __construct(ReadsFileFromPathInterface $reader, OrderCollectionFactory $orderCollectionFactory)
     {
         $this->reader = $reader;
-        $this->collectionFactory = $collectionFactory;
+        $this->orderCollectionFactory = $orderCollectionFactory;
     }
 
     public function handle(string $filePath, array $stocks): array
     {
         $csvContent = $this->reader->readFile($filePath);
 
-        /** @var \FulfillableOrders\Domain\Services\Collection\OrderCollection $collection */
-        $collection = $this->collectionFactory->create($csvContent->toArray(), OrderCollection::class);
+        $collection = $this->orderCollectionFactory->create($csvContent);
 
         $sort = (new SortList())->add(new SortInput('priority', Direction::DESC))
             ->add(new SortInput('created_at', Direction::ASC));

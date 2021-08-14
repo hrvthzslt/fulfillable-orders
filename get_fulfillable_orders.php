@@ -7,13 +7,13 @@ use FulfillableOrders\Domain\Actions\GetFulfillableOrdersAction;
 use FulfillableOrders\Domain\Exceptions\AmbiguousNumberOfParametersException;
 use FulfillableOrders\Domain\Exceptions\InvalidStockQuantityException;
 use FulfillableOrders\Domain\Presenters\OrderTablePresenter;
-use FulfillableOrders\Domain\Services\Collection\CollectionFactory;
+use FulfillableOrders\Domain\Services\Collection\OrderCollectionFactory;
 use FulfillableOrders\Domain\Services\Reader\CsvReader;
 
 $renderFulfillableOrdersCommand = new RenderFulfillableOrdersCommand(
     new GetFulfillableOrdersAction(
         new CsvReader(),
-        new CollectionFactory()
+        new OrderCollectionFactory()
     ), new OrderTablePresenter());
 
 try {

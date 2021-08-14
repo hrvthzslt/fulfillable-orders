@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Component\GetFulfillableOrders;
+namespace Tests\Component\GetFulfillableOrdersActions;
 
 use FulfillableOrders\Domain\Actions\GetFulfillableOrdersAction;
-use FulfillableOrders\Domain\Services\Collection\CollectionFactory;
+use FulfillableOrders\Domain\Services\Collection\OrderCollectionFactory;
 use FulfillableOrders\Domain\Services\Reader\CsvContent;
 use FulfillableOrders\Domain\Services\Reader\CsvReader;
 use PHPUnit\Framework\TestCase;
@@ -22,7 +22,7 @@ class ReturnsFulfilabbleOrdersActionTest extends TestCase
             ]
         ));
 
-        $action = new GetFulfillableOrdersAction($reader, new CollectionFactory());
+        $action = new GetFulfillableOrdersAction($reader, new OrderCollectionFactory());
         $items = $action->handle('a', [2 => 4]);
 
         $expectedItems = [
