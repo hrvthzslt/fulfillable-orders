@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Component\RenderFulfilledOrders;
+namespace Tests\Component\RenderFulfillableOrdersCommand;
 
 use FulfillableOrders\Application\Console\Commands\RenderFulfillableOrdersCommand;
 use FulfillableOrders\Domain\Dtos\OrderDetails;
@@ -8,7 +8,6 @@ use FulfillableOrders\Domain\Dtos\OrderDetailsList;
 
 class RenderFulfilledOrdersTest extends AbstractRenderFulfilledOrdersTest
 {
-
     public function test()
     {
         $this->expectNotToPerformAssertions();
@@ -19,14 +18,13 @@ class RenderFulfilledOrdersTest extends AbstractRenderFulfilledOrdersTest
                 ->add(new OrderDetails(2, 4, 1, "2021-03-22 17:41:32"))
         );
 
-        $this->orderTablePresenterMock->method('render');
+        $this->renderFulfillableOrdersAction->method('handle');
 
         $renderFulfillableOrders = new RenderFulfillableOrdersCommand(
             $this->getFulfillableOrdersActionMock,
-            $this->orderTablePresenterMock
+            $this->renderFulfillableOrdersAction
         );
 
         $renderFulfillableOrders->handle(['get_fulfillable_orders.php', '{"2":5}'], "path");
     }
-
 }

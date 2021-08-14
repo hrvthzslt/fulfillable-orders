@@ -3,24 +3,22 @@
 namespace FulfillableOrders\Application\Console\Commands;
 
 use FulfillableOrders\Domain\Actions\GetFulfillableOrdersAction;
-use FulfillableOrders\Domain\Dtos\OrderTableRow;
-use FulfillableOrders\Domain\Dtos\OrderTableRowList;
+use FulfillableOrders\Domain\Actions\RenderFulfillableOrdersAction;
 use FulfillableOrders\Domain\Exceptions\AmbiguousNumberOfParametersException;
 use FulfillableOrders\Domain\Exceptions\InvalidStockQuantityException;
-use FulfillableOrders\Domain\Presenters\RendersTableInterface;
 
 class RenderFulfillableOrdersCommand
 {
     private GetFulfillableOrdersAction $getFulfillableOrdersAction;
 
-    private RendersTableInterface $orderTablePresenter;
+    private RenderFulfillableOrdersAction $renderFulfillableOrdersAction;
 
     public function __construct(
         GetFulfillableOrdersAction $getFulfillableOrdersAction,
-        RendersTableInterface $orderTablePresenter
+        RenderFulfillableOrdersAction $renderFulfillableOrdersAction
     ) {
         $this->getFulfillableOrdersAction = $getFulfillableOrdersAction;
-        $this->orderTablePresenter = $orderTablePresenter;
+        $this->renderFulfillableOrdersAction = $renderFulfillableOrdersAction;
     }
 
     public function handle(array $arguments, string $filePath): void
@@ -34,16 +32,7 @@ class RenderFulfillableOrdersCommand
         }
 
         $fulfillableOrders = $this->getFulfillableOrdersAction->handle($filePath, $stockArguments);
-        
-        $orderTableRowList = new OrderTableRowList();
-        array_map(function ($fulfillableOrder) use ($orderTableRowList) {
-            $orderTableRowList->add(new OrderTableRow(
-                $fulfillableOrder->getProductId(),
-                $fulfillableOrder->getQuantity(),
-                $fulfillableOrder->getPriority(),
-                $fulfillableOrder->getCreatedAt()));
-        }, $fulfillableOrders->getList());
 
-        $this->orderTablePresenter->render($orderTableRowList);
+        $this->renderFulfillableOrdersAction->handle($fulfillableOrders);
     }
 }

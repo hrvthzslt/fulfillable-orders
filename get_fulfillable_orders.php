@@ -4,6 +4,8 @@ require_once __DIR__.'/vendor/autoload.php';
 
 use FulfillableOrders\Application\Console\Commands\RenderFulfillableOrdersCommand;
 use FulfillableOrders\Domain\Actions\GetFulfillableOrdersAction;
+use FulfillableOrders\Domain\Actions\RenderFulfillableOrdersAction;
+use FulfillableOrders\Domain\Dtos\OrderTableRowList;
 use FulfillableOrders\Domain\Exceptions\AmbiguousNumberOfParametersException;
 use FulfillableOrders\Domain\Exceptions\InvalidStockQuantityException;
 use FulfillableOrders\Domain\Presenters\OrderTablePresenter;
@@ -14,7 +16,8 @@ $renderFulfillableOrdersCommand = new RenderFulfillableOrdersCommand(
     new GetFulfillableOrdersAction(
         new CsvReader(),
         new OrderCollectionFactory()
-    ), new OrderTablePresenter());
+    ),
+    new RenderFulfillableOrdersAction(new OrderTableRowList(), new OrderTablePresenter()));
 
 try {
     $renderFulfillableOrdersCommand->handle($argv, 'orders.csv');

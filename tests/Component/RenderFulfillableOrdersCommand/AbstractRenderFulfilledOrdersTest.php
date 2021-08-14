@@ -1,22 +1,20 @@
 <?php
 
-namespace Tests\Component\RenderFulfilledOrders;
+namespace Tests\Component\RenderFulfillableOrdersCommand;
 
 use FulfillableOrders\Domain\Actions\GetFulfillableOrdersAction;
-use FulfillableOrders\Domain\Presenters\OrderTablePresenter;
+use FulfillableOrders\Domain\Actions\RenderFulfillableOrdersAction;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractRenderFulfilledOrdersTest extends TestCase
 {
-
     protected $getFulfillableOrdersActionMock;
 
-    protected $orderTablePresenterMock;
+    protected $renderFulfillableOrdersAction;
 
     public function setUp(): void
     {
         $this->getFulfillableOrdersActionMock = $this->createMock(GetFulfillableOrdersAction::class);
-        $this->orderTablePresenterMock = $this->createMock(OrderTablePresenter::class);
+        $this->renderFulfillableOrdersAction = $this->createMock(RenderFulfillableOrdersAction::class);
     }
-
 }

@@ -35,7 +35,7 @@ class ReturnsFulfillableOrdersActionTest extends TestCase
         $this->assertEquals($orderDetailsList->getList(), $items->getList());
     }
 
-    public function dataProvider()
+    public function dataProvider(): array
     {
         return [
             "Case #1" => [
