@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class SortListCreatedTest extends TestCase
 {
     /**
-     * @dataProvider sortListDataProvider
+     * @dataProvider dataProvider
      *
      * @param  string  $firstField
      * @param  string  $firstDirection
@@ -26,7 +26,7 @@ class SortListCreatedTest extends TestCase
         $this->assertCount(2, $sortList->getList());
     }
 
-    public function sortListDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             'Sort list with priority/desc and created_at/asc' => [

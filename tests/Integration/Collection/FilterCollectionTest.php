@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class FilterCollectionTest extends TestCase
 {
     /**
-     * @dataProvider filterCollectionDataProvider
+     * @dataProvider dataProvider
      *
      * @param  array     $itemsToCollect
      * @param  array     $expectedCollection
@@ -23,7 +23,7 @@ class FilterCollectionTest extends TestCase
         $this->assertEquals($expectedCollection, $collection->getItems());
     }
 
-    public function filterCollectionDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             "Letters with quantity filtered with result"    => [

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class OrderTableRowCreatedTest extends TestCase
 {
     /**
-     * @dataProvider orderTableRowCreatedDataProvider
+     * @dataProvider dataProvider
      *
      * @param  int     $productId
      * @param  int     $quantity
@@ -26,7 +26,7 @@ class OrderTableRowCreatedTest extends TestCase
         $this->assertEquals($date, $orderTableRow->getCreatedAt());
     }
 
-    public function orderTableRowCreatedDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             "Case #1" => [

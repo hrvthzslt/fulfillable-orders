@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class StockInputCreatedTest extends TestCase
 {
     /**
-     * @dataProvider stockInputDataProvider
+     * @dataProvider dataProvider
      *
      * @param  int  $productId
      * @param  int  $quantity
@@ -21,7 +21,7 @@ class StockInputCreatedTest extends TestCase
         $this->assertEquals($quantity, $stockInput->getQuantity());
     }
 
-    public function stockInputDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             'Stock input #1' => [

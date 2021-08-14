@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class FilterOrderCollectionByStockTest extends TestCase
 {
     /**
-     * @dataProvider filterOrderCollectionByStockDataProvider
+     * @dataProvider dataProvider
      *
      * @param  array  $itemsToCollect
      * @param  array  $expectedItems
@@ -28,7 +28,7 @@ class FilterOrderCollectionByStockTest extends TestCase
         $this->assertEquals($expectedItems, $filteredItems);
     }
 
-    public function filterOrderCollectionByStockDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             'Filter items by stock with result'    => [

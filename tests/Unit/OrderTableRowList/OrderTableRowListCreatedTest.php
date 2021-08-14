@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class OrderTableRowListCreatedTest extends TestCase
 {
     /**
-     * @dataProvider orderTableRowsDataProvider
+     * @dataProvider dataProvider
      *
      * @param  array  $firstRow
      * @param  array  $secondRow
@@ -32,7 +32,7 @@ class OrderTableRowListCreatedTest extends TestCase
         $this->assertCount(2, $orderTableRowList->getList());
     }
 
-    public function orderTableRowsDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             'Row list #1' => [

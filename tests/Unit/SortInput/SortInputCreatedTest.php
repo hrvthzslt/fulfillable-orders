@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class SortInputCreatedTest extends TestCase
 {
     /**
-     * @dataProvider sortInputDataProvider
+     * @dataProvider dataProvider
      *
      * @param  string  $field
      * @param  string  $direction
@@ -22,7 +22,7 @@ class SortInputCreatedTest extends TestCase
         $this->assertEquals($direction, $sortInput->getDirection());
     }
 
-    public function sortInputDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             'Title ascending'       => [

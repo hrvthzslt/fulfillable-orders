@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class SortCollectionTest extends TestCase
 {
     /**
-     * @dataProvider sortCollectionDataProvider
+     * @dataProvider dataProvider
      *
      * @param  array   $itemsToCollect
      * @param  array   $expectedItems
@@ -36,7 +36,7 @@ class SortCollectionTest extends TestCase
         $this->assertEquals($expectedItems, $collection->getItems());
     }
 
-    public function sortCollectionDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             'Letters with quantity' => [

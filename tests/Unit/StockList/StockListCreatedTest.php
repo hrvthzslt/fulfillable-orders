@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class StockListCreatedTest extends TestCase
 {
     /**
-     * @dataProvider stockListDataProvider
+     * @dataProvider dataProvider
      *
      * @param  int  $firstProductId
      * @param  int  $firstQuantity
@@ -25,7 +25,7 @@ class StockListCreatedTest extends TestCase
         $this->assertCount(2, $stockList->getList());
     }
 
-    public function stockListDataProvider(): array
+    public function dataProvider(): array
     {
         return [
             'Stock list #1' => [
