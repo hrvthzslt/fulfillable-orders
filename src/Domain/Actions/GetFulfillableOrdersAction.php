@@ -4,11 +4,12 @@ namespace FulfillableOrders\Domain\Actions;
 
 use FulfillableOrders\Domain\Dtos\SortInput;
 use FulfillableOrders\Domain\Dtos\SortList;
+use FulfillableOrders\Domain\Dtos\StockInput;
+use FulfillableOrders\Domain\Dtos\StockList;
 use FulfillableOrders\Domain\Enums\Direction;
 use FulfillableOrders\Domain\Services\Collection\CollectionFactory;
 use FulfillableOrders\Domain\Services\Collection\OrderCollection;
 use FulfillableOrders\Domain\Services\Reader\ReadsFileFromPathInterface;
-use FulfillableOrders\Domain\Values\StockBag;
 
 class GetFulfillableOrdersAction
 {
@@ -22,7 +23,7 @@ class GetFulfillableOrdersAction
         $this->collectionFactory = $collectionFactory;
     }
 
-    public function handle(string $filePath, array $stock): array
+    public function handle(string $filePath, array $stocks): array
     {
         $csvContent = $this->reader->readFile($filePath);
 
@@ -34,9 +35,12 @@ class GetFulfillableOrdersAction
 
         $collection->sort($sort);
 
-        $stock = (new StockBag())->addMultiple($stock);
+        $stockList = new StockList();
+        array_walk($stocks, function ($quantity, $productId) use ($stockList) {
+            $stockList->add(new StockInput($productId, $quantity));
+        });
 
-        $collection->filterByStock($stock);
+        $collection->filterByStock($stockList);
 
         return $collection->getItems();
     }

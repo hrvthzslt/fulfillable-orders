@@ -2,16 +2,16 @@
 
 namespace FulfillableOrders\Domain\Services\Collection;
 
-use FulfillableOrders\Domain\Values\StockBag;
+use FulfillableOrders\Domain\Dtos\StockList;
 
 class OrderCollection extends Collection
 {
-    public function filterByStock(StockBag $stockBag): self
+    public function filterByStock(StockList $stockList): self
     {
-        $stock = $stockBag->getBag();
-        $this->filter(function ($item) use ($stock) {
-            $productId = (int)$item['product_id'];
-            return array_key_exists($productId, $stock) && $item['quantity'] <= $stock[$productId];
+        $stockList = $stockList->getList();
+        $this->filter(function ($item) use ($stockList) {
+            return array_key_exists($item['product_id'], $stockList)
+                && $item['quantity'] <= $stockList[$item['product_id']];
         });
 
         return $this;
