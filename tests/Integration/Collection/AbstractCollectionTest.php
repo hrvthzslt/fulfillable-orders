@@ -4,6 +4,7 @@ namespace Tests\Integration\Collection;
 
 use PHPUnit\Framework\TestCase;
 
+// TODO replace to data provider
 abstract class AbstractCollectionTest extends TestCase
 {
     protected $itemsToCollect
@@ -16,5 +17,4 @@ abstract class AbstractCollectionTest extends TestCase
             ['quantity' => '3', 'letter' => 'F'],
         ];
 
-    abstract public function test();
 }

@@ -2,8 +2,8 @@
 
 namespace FulfillableOrders\Domain\Services\Collection;
 
+use FulfillableOrders\Domain\Dtos\SortList;
 use FulfillableOrders\Domain\Enums\Direction;
-use FulfillableOrders\Domain\Values\SortBag;
 
 class Collection implements FilterableAndSortableInterface
 {
@@ -19,15 +19,15 @@ class Collection implements FilterableAndSortableInterface
         return $this->items;
     }
 
-    public function sort(SortBag $sortBag): self
+    public function sort(SortList $sortList): self
     {
-        usort($this->items, function ($a, $b) use ($sortBag) {
+        usort($this->items, function ($a, $b) use ($sortList) {
             $aSet = [];
             $bSet = [];
 
-            foreach ($sortBag->getBag() as $key => $direction) {
-                $aSet[] = $direction === Direction::ASC ? [$a[$key]] : [$b[$key]];
-                $bSet[] = $direction === Direction::ASC ? [$b[$key]] : [$a[$key]];
+            foreach ($sortList->getList() as $field => $direction) {
+                $aSet[] = $direction === Direction::ASC ? [$a[$field]] : [$b[$field]];
+                $bSet[] = $direction === Direction::ASC ? [$b[$field]] : [$a[$field]];
             }
 
             return $aSet <=> $bSet;

@@ -2,11 +2,11 @@
 
 namespace FulfillableOrders\Domain\Services\Collection;
 
-use FulfillableOrders\Domain\Values\SortBag;
+use FulfillableOrders\Domain\Dtos\SortList;
 
 interface FilterableAndSortableInterface
 {
     public function filter(callable $callback): self;
 
-    public function sort(SortBag $sortBag): self;
+    public function sort(SortList $sortList): self;
 }

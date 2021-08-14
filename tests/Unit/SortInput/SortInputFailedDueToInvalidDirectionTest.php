@@ -1,16 +1,17 @@
 <?php
 
-namespace Tests\Unit\SortBag;
+namespace Tests\Unit\SortInput;
 
+use FulfillableOrders\Domain\Dtos\SortInput;
 use FulfillableOrders\Domain\Exceptions\InvalidDirectionException;
-use FulfillableOrders\Domain\Values\SortBag;
 use PHPUnit\Framework\TestCase;
 
-class SortBagFailedDueToInvalidDirectionTest extends TestCase
+class SortInputFailedDueToInvalidDirectionTest extends TestCase
 {
     public function test()
     {
         $this->expectException(InvalidDirectionException::class);
-        (new SortBag())->add('id', 'invalid');
+
+        new SortInput('field', 'invalid');
     }
 }
