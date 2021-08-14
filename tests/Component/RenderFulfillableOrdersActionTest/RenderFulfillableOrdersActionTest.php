@@ -27,7 +27,7 @@ class RenderFulfillableOrdersActionTest extends TestCase
         );
 
         $renderFulfillableOrdersAction->handle(
-            (new OrderDetailsList())->add(new OrderDetails(1, 2, 3, 4, "2021-01-01"))
+            (new OrderDetailsList())->add(new OrderDetails(1, 2, 3, "2021-01-01"))
         );
     }
 }
